@@ -1,0 +1,17 @@
+# 为其运行实验规划（和预处理）
+nnUNetv2_plan_and_preprocess -d finetuning_dataset
+
+# 提取预训练数据集的数据集指纹（如果尚不可用）
+nnUNetv2_extract_fingerprint -d pretraining_dataset
+
+# 从微调数据集中获取计划，并将其传输到预训练数据集
+nnUNetv2_move_plans_between_datasets -s finetuning_dataset -t pretraining_dataset -sp finetuning_plans_identifier -tp pretraining_plans_identifier
+
+# 在预训练数据集上运行预处理
+nnUNetv2_preprocess -d pretraining_dataset -plans_name pretraining_plans_identifier
+
+# 像往常一样运行训练
+nnUNetv2_train pretraining_dataset config all -p pretraining_plans_identifier
+
+# 预训练完成后（或通过其他方式获得兼容的权重），可以使用它们来初始化模型
+nnUNetv2_train finetuning_dataset config fold -pretrained_weights path_to_checkpoint
