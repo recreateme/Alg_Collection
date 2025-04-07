@@ -4,6 +4,14 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+import faiss
+
+faiss.normalize_L2()
+
+import accelerate
+accelerator = accelerate.Accelerator()
+accelerator.pad_across_processes()
+
 class PositionalEncoding(nn.Module):
     # 为了给模型提供序列中每个词的位置信息，我们需要添加位置编码
     def __init__(self, d_model, max_len=5000):

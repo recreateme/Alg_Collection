@@ -3,8 +3,8 @@ import numpy as np
 plt.rcParams.update({'font.family': 'Times New Roman', 'font.size': 12})  # 设置学术字体
 plt.rcParams['font.family'] = 'SimHei'
 
+
 # 生成模拟数据（带可重复性的随机种子）
-np.random.seed(42)
 dim = [8,16,32,64,128]
 recall_scores = np.random.rand(len(dim))
 ndcg_scores = np.random.rand(len(dim))
