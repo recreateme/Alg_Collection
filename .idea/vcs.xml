@@ -2,7 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/计算机视觉方向/目标检测/Faster RCNN/detectron2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/计算机视觉方向/目标检测/Mask R-CNN/Mask_RCNN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/语义分割/paper/AM-UNet/AM-UNet" vcs="Git" />
   </component>
 </project>
